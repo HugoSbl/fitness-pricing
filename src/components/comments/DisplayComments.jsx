@@ -1,11 +1,10 @@
 import React from "react";
 import CommentCard from "../customComponents/CommentCard.jsx";
 
-const DisplayComments = ({ commentArray, deleteComment, modifyComment }) => {
+const DisplayComments = ({ commentList, deleteComment, modifyComment }) => {
   return (
     <div className="flex flex-row-reverse flex-wrap justify-center">
-      {commentArray.map((currentObject) => {
-        console.log("currentObject", currentObject);
+      {commentList.map((currentObject) => {
         return (
           <CommentCard
             key={currentObject.id}

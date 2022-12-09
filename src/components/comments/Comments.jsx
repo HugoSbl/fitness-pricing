@@ -4,7 +4,8 @@ import DisplayComments from "./DisplayComments.jsx";
 
 const Comments = () => {
   const [commentText, setCommentText] = useState("");
-  const [commentArray, setCommentArray] = useState([]);
+  const [commentList, setCommentList] = useState([]);
+  const [arrayToModify, setArrayToModify] = useState(() => {});
 
   const handleInputChange = (event) => {
     setCommentText(event.target.value);
@@ -14,21 +15,24 @@ const Comments = () => {
     //probleme du 0 à régler pour 21:4 à la place de 21:04 par ex
     const now = new Date();
     const commentDate = now.getHours() + ":" + now.getMinutes();
-    const commentArrayLength = commentArray.length;
+    const commentListLength = commentList.length;
 
-    setCommentArray((currState) => [
+    setCommentList((currState) => [
       ...currState,
-      { id: commentArrayLength + 1, date: commentDate, text: commentText },
+      { id: commentListLength + 1, date: commentDate, text: commentText },
     ]);
   };
-  console.log("commentArray : ", commentArray);
 
   const deleteComment = (id) => {
-    console.log(id);
+    setCommentList(
+      commentList.filter((commentListItem) => commentListItem.id !== id)
+    );
   };
 
   const modifyComment = (id) => {
-    console.log("🚀 ~ modifyComment ~ id", id);
+    setArrayToModify(
+      commentList.find((commentListItem) => commentListItem.id == id)
+    );
   };
 
   return (
@@ -38,12 +42,13 @@ const Comments = () => {
           <InputComments
             addComment={addComment}
             handleInputChange={handleInputChange}
+            arrayToModify={arrayToModify}
           />
         </div>
       </div>
       <div>
         <DisplayComments
-          commentArray={commentArray}
+          commentList={commentList}
           deleteComment={deleteComment}
           modifyComment={modifyComment}
         />

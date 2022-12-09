@@ -1,6 +1,10 @@
 import React from "react";
 
-const InputComments = ({ addComment, handleInputChange }) => {
+const InputComments = ({ addComment, handleInputChange, arrayToModify }) => {
+  const modifiedComment = ({ arrayToModify }) => {
+    console.log("testing the second : ", arrayToModify[0].text);
+  };
+
   return (
     <div>
       <div>Commentaires</div>

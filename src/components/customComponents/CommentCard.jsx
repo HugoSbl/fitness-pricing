@@ -1,7 +1,6 @@
 import React from "react";
 
 const CommentCard = ({ id, text, date, deleteComment, modifyComment }) => {
-  console.log("test comment card, ", id, text, date);
   return (
     <div id={id} className="bg-yellow-300 rounded-lg  w-64 m-1">
       <div className="p-2">
