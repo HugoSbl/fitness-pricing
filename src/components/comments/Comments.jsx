@@ -3,12 +3,13 @@ import InputComments from "./InputsComments.jsx";
 import DisplayComments from "./DisplayComments.jsx";
 
 const Comments = () => {
-  const [commentText, setCommentText] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [commentList, setCommentList] = useState([]);
-  const [arrayToModify, setArrayToModify] = useState(() => {});
+  const [isModify, setIsModify] = useState(false);
+  const [commentId, setCommentId] = useState(0);
 
   const handleInputChange = (event) => {
-    setCommentText(event.target.value);
+    setInputValue(event.target.value);
   };
 
   const addComment = () => {
@@ -19,8 +20,9 @@ const Comments = () => {
 
     setCommentList((currState) => [
       ...currState,
-      { id: commentListLength + 1, date: commentDate, text: commentText },
+      { id: commentListLength + 1, date: commentDate, text: inputValue },
     ]);
+    setInputValue("");
   };
 
   const deleteComment = (id) => {
@@ -30,9 +32,28 @@ const Comments = () => {
   };
 
   const modifyComment = (id) => {
-    setArrayToModify(
-      commentList.find((commentListItem) => commentListItem.id == id)
+    const commentToModify = commentList.find(
+      (commentListItem) => commentListItem.id === id
     );
+    setCommentId(commentToModify.id);
+    console.log("commentList", commentList);
+    setInputValue(commentToModify.text);
+    setIsModify(true);
+  };
+
+  //FONCTION A ETUDIER /!\
+  //ici
+  //oublies pas
+  const textCommentModifier = () => {
+    setCommentList((currState) =>
+      currState.map((item) =>
+        item.id === commentId
+          ? { id: item.id, text: inputValue, date: item.date }
+          : item
+      )
+    );
+    setInputValue("");
+    setIsModify(false);
   };
 
   return (
@@ -40,9 +61,11 @@ const Comments = () => {
       <div className="flex justify-center pt-6">
         <div className=" w-1/3">
           <InputComments
+            value={inputValue}
             addComment={addComment}
             handleInputChange={handleInputChange}
-            arrayToModify={arrayToModify}
+            isModify={isModify}
+            textCommentModifier={textCommentModifier}
           />
         </div>
       </div>

@@ -1,10 +1,12 @@
 import React from "react";
 
-const InputComments = ({ addComment, handleInputChange, arrayToModify }) => {
-  const modifiedComment = ({ arrayToModify }) => {
-    console.log("testing the second : ", arrayToModify[0].text);
-  };
-
+const InputComments = ({
+  value,
+  addComment,
+  handleInputChange,
+  isModify,
+  textCommentModifier,
+}) => {
   return (
     <div>
       <div>Commentaires</div>
@@ -27,15 +29,17 @@ const InputComments = ({ addComment, handleInputChange, arrayToModify }) => {
       "
         id="commentInput"
         rows="3"
+        value={value}
         placeholder="Your message"
         onChange={handleInputChange}
       ></textarea>
+
       <button
         className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         type="button"
-        onClick={addComment}
+        onClick={isModify ? textCommentModifier : addComment}
       >
-        Ajouter
+        {isModify ? "Modifier" : "Ajouter"}
       </button>
     </div>
   );
