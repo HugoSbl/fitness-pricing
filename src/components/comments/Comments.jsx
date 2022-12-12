@@ -58,7 +58,7 @@ const Comments = () => {
 
   return (
     <div>
-      <div className="flex justify-center pt-6">
+      <div className="flex justify-center pt-6 my-4">
         <div className=" w-1/3">
           <InputComments
             value={inputValue}
