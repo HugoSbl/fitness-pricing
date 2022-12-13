@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import InputComments from "./InputsComments.jsx";
 import DisplayComments from "./DisplayComments.jsx";
 
@@ -7,6 +7,20 @@ const Comments = () => {
   const [commentList, setCommentList] = useState([]);
   const [isModify, setIsModify] = useState(false);
   const [commentId, setCommentId] = useState(0);
+  const [isDeployed, setIsDeployed] = useState(true);
+
+  useEffect(() => {
+    if (inputValue.length > 0) {
+      setIsDeployed(true);
+    } else {
+      setIsDeployed(false);
+    }
+  }, [inputValue]);
+
+  const handleClickOnInputButton = () => {
+    if (isModify) textCommentModifier();
+    else addComment();
+  };
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -32,6 +46,7 @@ const Comments = () => {
   };
 
   const modifyComment = (id) => {
+    /*  setIsDeployed(true); */
     const commentToModify = commentList.find(
       (commentListItem) => commentListItem.id === id
     );
@@ -66,6 +81,9 @@ const Comments = () => {
             handleInputChange={handleInputChange}
             isModify={isModify}
             textCommentModifier={textCommentModifier}
+            handleClick={handleClickOnInputButton}
+            setIsDeployed={setIsDeployed}
+            isDeployed={isDeployed}
           />
         </div>
       </div>
@@ -74,6 +92,7 @@ const Comments = () => {
           commentList={commentList}
           deleteComment={deleteComment}
           modifyComment={modifyComment}
+          setIsDeployed={setIsDeployed}
         />
       </div>
     </div>
