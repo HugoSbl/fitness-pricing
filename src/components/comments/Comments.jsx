@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import InputComments from "./InputsComments.jsx";
 import DisplayComments from "./DisplayComments.jsx";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Comments = () => {
   const [inputValue, setInputValue] = useState("");
@@ -20,10 +20,10 @@ const Comments = () => {
 
   const handleClickOnInputButton = () => {
     if (isModify) {
-      toast.success("Le commentaire a été modifié");
+      toast.success("Le commentaire a été modifié", { duration: 1500 });
       textCommentModifier();
     } else {
-      toast.success("Le commentaire a été ajouté");
+      toast.success("Le commentaire a été ajouté", { duration: 1500 });
       addComment();
     }
   };
@@ -49,6 +49,7 @@ const Comments = () => {
     setCommentList(
       commentList.filter((commentListItem) => commentListItem.id !== id)
     );
+    toast.error("message supprimé", { duration: 900 });
   };
 
   const modifyComment = (id) => {

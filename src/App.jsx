@@ -9,7 +9,31 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Toaster />
+      <Toaster
+        position="bottom-right"
+        reverseOrder={true}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 3000,
+          style: {
+            background: "#fff",
+            color: "#363636",
+          },
+
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+        }}
+      />
       <div className="flex justify-evenly">
         {pricingCardItems.map((cardItem) => (
           <PricingCard key={cardItem.id} {...cardItem} className="w-1/3" />

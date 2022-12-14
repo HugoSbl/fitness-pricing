@@ -41,7 +41,7 @@ const PricingCard = ({ header, content, options }) => {
     .map((optionItem) => optionItem.name);
 
   return (
-    <div className="w-80 m-4 rounded-lg border-solid overflow-hidden border-red-600 border-2">
+    <div className="w-80 m-4 rounded-lg border-solid overflow-hidden border-slate-600 border-2">
       {/* Flo : comment regler la taille d'une div contenant toute une floppée d'info de manière optimale ? (et que le contenu se déplace avec)*/}
       <PricingCardHeader header={header} />
       <PricingCardContent content={content} />
