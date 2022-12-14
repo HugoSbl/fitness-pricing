@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import InputComments from "./InputsComments.jsx";
 import DisplayComments from "./DisplayComments.jsx";
+import toast, { Toaster } from "react-hot-toast";
 
 const Comments = () => {
   const [inputValue, setInputValue] = useState("");
@@ -18,8 +19,13 @@ const Comments = () => {
   }, [inputValue]);
 
   const handleClickOnInputButton = () => {
-    if (isModify) textCommentModifier();
-    else addComment();
+    if (isModify) {
+      toast.success("Le commentaire a été modifié");
+      textCommentModifier();
+    } else {
+      toast.success("Le commentaire a été ajouté");
+      addComment();
+    }
   };
 
   const handleInputChange = (event) => {
