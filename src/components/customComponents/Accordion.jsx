@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 const Accordion = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false); // rename en isOpen, setIsOpen
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="flex justify-center">
       <div
-        className="rounded-lg bg-yellow-300 w-4/5 select-none"
+        className="rounded-lg bg-yellow-300 w-4/5 select-none overflow-auto"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center justify-between">

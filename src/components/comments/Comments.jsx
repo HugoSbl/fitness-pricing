@@ -35,7 +35,11 @@ const Comments = () => {
   const addComment = () => {
     //probleme du 0 à régler pour 21:4 à la place de 21:04 par ex
     const now = new Date();
-    const commentDate = now.getHours() + ":" + now.getMinutes();
+    const commentDate =
+      String(now.getHours()) +
+      ":" +
+      (now.getMinutes() < 10 ? "0" : "") +
+      now.getMinutes();
     const commentListLength = commentList.length;
 
     setCommentList((currState) => [
@@ -49,7 +53,7 @@ const Comments = () => {
     setCommentList(
       commentList.filter((commentListItem) => commentListItem.id !== id)
     );
-    toast.error("message supprimé", { duration: 900 });
+    toast.error("Commentaire supprimé", { duration: 900 });
   };
 
   const modifyComment = (id) => {
