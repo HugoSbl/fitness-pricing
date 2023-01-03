@@ -1,4 +1,5 @@
 import { React } from "react";
+import Button from "../customComponents/Button.jsx";
 
 const InputComments = ({
   value,
@@ -28,13 +29,10 @@ const InputComments = ({
         onBlur={() => setIsDeployed(false)}
       ></textarea>
 
-      <button
-        className="inline-block w-full px-6 py-2.5  bg-yellow-300 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-500 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-500 active:shadow-lg transition duration-150 select-none ease-in-out"
-        type="button"
-        onClick={handleClick}
-      >
-        {isModify ? "Modifier" : "Ajouter"}
-      </button>
+      <Button
+        buttonText={isModify ? "Modifier" : "Ajouter"}
+        handleClick={handleClick}
+      ></Button>
     </div>
   );
 };

@@ -3,16 +3,18 @@ import Accordion from "../../customComponents/Accordion";
 
 const OptionSection = ({ condition }) => {
   return (
-    /* demander à flo pourquoi items-center plutot que align-middle */
     <div className="flex mx-4 my-2 items-center">
-      <img src="src/assets/checked.png" className="h-6"></img>
+      <img
+        src="src/assets/checked.png"
+        alt="checked logo"
+        className="h-6"
+      ></img>
       <p className="font-bold mx-1 px-1">{condition.value}</p>
       <p className="text-sm">{condition.description}</p>
     </div>
   );
 };
 
-/* demander à flo si c'est parce que j'ai appelé ma props pricing qu'il rentre directement dans pricing dans la bdd */
 const PricingSection = ({ pricing }) => {
   return (
     <div className="my-4">
@@ -28,7 +30,6 @@ const PricingSection = ({ pricing }) => {
   );
 };
 
-/* optimisation de ce code pour  */
 const AvantagesList = ({ avantages }) => {
   return (
     <ul className="list-disc">
@@ -53,7 +54,7 @@ const PricingCardContent = ({ content }) => {
           <OptionSection condition={condition} key={condition.value} />
         ))}
       </div>
-      <Accordion title="title">
+      <Accordion title="Avantages">
         <AvantagesList {...content} />
       </Accordion>
     </div>
