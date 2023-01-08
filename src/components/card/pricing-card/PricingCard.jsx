@@ -19,7 +19,6 @@ const PricingCard = ({ header, content, options }) => {
   // 1. options:  [{ id: 'option-1', title: '', price: '', ... }, {...}]
   // 2. state: ['option-1', '', ...]
 
-  // calcul du prix le premier mois
   const priceFirstMonth = parseFloat(
     options
       .filter((optionItem) =>
@@ -42,7 +41,6 @@ const PricingCard = ({ header, content, options }) => {
 
   return (
     <div className="w-80 m-4 rounded-lg border-solid overflow-hidden border-slate-600 border-2">
-      {/* Flo : comment regler la taille d'une div contenant toute une floppée d'info de manière optimale ? (et que le contenu se déplace avec)*/}
       <PricingCardHeader header={header} />
       <PricingCardContent content={content} />
       <PricingCardOptions

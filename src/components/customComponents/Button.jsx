@@ -6,7 +6,7 @@ const Button = ({ handleClick, buttonText }) => (
     type="button"
     onClick={handleClick}
   >
-    {buttonText}
+    <span className={"text-slate-600 font-extrabold"}>{buttonText}</span>
   </button>
 );
 

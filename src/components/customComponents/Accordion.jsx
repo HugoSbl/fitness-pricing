@@ -10,9 +10,15 @@ const Accordion = ({ title, children }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center justify-between">
-          <img className="h-4 px-4" src="src/assets/arrow.png"></img>
+          <img
+            className={`h-4 px-4 transition-all ${isOpen ? "rotate-180" : ""}`}
+            src="src/assets/arrow.png"
+          ></img>
           <div>{title}</div>
-          <img className="h-4 px-4" src="src/assets/arrow.png"></img>
+          <img
+            className={`h-4 px-4 transition-all ${isOpen ? "rotate-180" : ""}`}
+            src="src/assets/arrow.png"
+          ></img>
         </div>
         {isOpen && <div>{children}</div>}
       </div>

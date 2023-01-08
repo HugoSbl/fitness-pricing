@@ -1,9 +1,12 @@
 import React from "react";
 import { useState, useContext } from "react";
 import Button from "./Button.jsx";
+import DefaultInput from "./DefaultInput.jsx";
 
 const ModalContent = ({ showModal, onClose }) => {
   if (!showModal) return;
+
+  const [typeOfInput, setTypeOfInput] = useState(true);
 
   return (
     <div
@@ -17,12 +20,34 @@ const ModalContent = ({ showModal, onClose }) => {
         onClick={(event) => event.stopPropagation()}
       >
         <h1 className="py-4 w-full bg-slate-600 text-blue-50 font-extrabold text-center">
-          Inscription
+          CONNEXION
         </h1>
-        <div>
-          <div>modal content</div>
+
+        <div className="my-2">
+          <form className="flex-col">
+            <div className="w-full">
+              <DefaultInput defaultText="Identifiant" typeOfinput="text" />
+            </div>
+
+            <div className="w-full flex items-center">
+              <DefaultInput
+                defaultText="Mot de passe"
+                typeOfInput={typeOfInput ? "password" : "text"}
+              />
+
+              <img
+                className="h-6 mx-4"
+                src="src/assets/eye.png"
+                onClick={() => {
+                  setTypeOfInput(!typeOfInput);
+                }}
+              />
+            </div>
+          </form>
         </div>
-        <Button buttonText={"Confirmer"} handleClick={() => onClose()}></Button>
+        <div className="w-full p-4">
+          <Button buttonText="Confirmer" handleClick={() => onClose()}></Button>
+        </div>
       </div>
     </div>
   );
@@ -34,7 +59,7 @@ const Modal = () => {
   return (
     <>
       <Button
-        buttonText={"s'inscrire"}
+        buttonText={"SE CONNECTER"}
         handleClick={() => setShowModal(true)}
       ></Button>
       <ModalContent

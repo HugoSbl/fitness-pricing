@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Navigation.jsx";
+import Navbar from "./components/header/Navigation.jsx";
 import Content from "./components/Content.jsx";
 
 function App() {

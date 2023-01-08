@@ -8,10 +8,12 @@ import Toaster from "./customComponents/Toaster.jsx";
 const Content = () => {
   return (
     <>
-      <div className="flex justify-evenly">
-        {pricingCardItems.map((cardItem) => (
-          <PricingCard key={cardItem.id} {...cardItem} className="w-1/3" />
-        ))}
+      <div className="flex justify-center">
+        <div className="flex justify-evenly max-w-screen-2xl">
+          {pricingCardItems.map((cardItem) => (
+            <PricingCard key={cardItem.id} {...cardItem} className="w-1/3" />
+          ))}
+        </div>
       </div>
       ;
       <Comments />
