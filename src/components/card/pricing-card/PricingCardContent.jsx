@@ -17,7 +17,7 @@ const OptionSection = ({ condition }) => {
 
 const PricingSection = ({ pricing }) => {
   return (
-    <div className="my-4">
+    <div className="py-4">
       <div className="flex justify-center gap-1">
         <p className="text-5xl font-extrabold">{pricing.bigPrice}</p>
         <div className="flex-row ">
@@ -47,16 +47,18 @@ const AvantagesList = ({ avantages }) => {
 
 const PricingCardContent = ({ content }) => {
   return (
-    <div className="">
+    <div className="border-x-2 border-slate-600">
       <PricingSection {...content} />
       <div className="flex-col align-center">
         {content.condition.map((condition) => (
           <OptionSection condition={condition} key={condition.value} />
         ))}
       </div>
-      <Accordion title="Avantages">
-        <AvantagesList {...content} />
-      </Accordion>
+      <div className="py-2">
+        <Accordion title="Avantages">
+          <AvantagesList {...content} />
+        </Accordion>
+      </div>
     </div>
   );
 };

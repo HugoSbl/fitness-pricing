@@ -9,3 +9,7 @@
 .flex-center {
   @apply flex justify-center items-center;
 }
+
+* {
+  box-sizing: border-box;
+}

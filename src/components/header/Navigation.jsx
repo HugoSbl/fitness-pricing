@@ -28,7 +28,7 @@ const Navbar = () => {
               alt="FitnessPark Logo"
             ></img>
           </div>
-          <div className="w-1/2  justify-between border-solid border-2 border-black p-6">
+          <div className="w-1/2  justify-between  p-6">
             <ul className="flex flex-row gap-y-12 justify-between text-white ">
               <NavbarButton text="Concept" link="" />
               <NavbarButton text="Abonnements" link="" />
@@ -42,10 +42,7 @@ const Navbar = () => {
               src="src/assets/youtube.png"
               alt="Youtube Link"
             />
-            <a
-              className="text-yellow-300 font-extrabold text-sm"
-              href="src/components"
-            >
+            <a className="text-yellow-300 font-extrabold text-sm" href="">
               BLOG
             </a>
             <div className="w-2/3 m-4">

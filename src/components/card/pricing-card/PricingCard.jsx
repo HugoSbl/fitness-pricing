@@ -40,7 +40,7 @@ const PricingCard = ({ header, content, options }) => {
     .map((optionItem) => optionItem.name);
 
   return (
-    <div className="w-80 m-4 rounded-lg border-solid overflow-hidden border-slate-600 border-2">
+    <div className="w-80 m-4 rounded-lg overflow-hidden ">
       <PricingCardHeader header={header} />
       <PricingCardContent content={content} />
       <PricingCardOptions

@@ -40,7 +40,7 @@ const PricingCardOptions = ({
   nameOfSelectedOptions,
 }) => {
   return (
-    <div>
+    <div className="border-x-2 border-b-2 border-slate-600 rounded-b-lg">
       {options.map((option) => (
         <OptionCard
           key={option.name}
